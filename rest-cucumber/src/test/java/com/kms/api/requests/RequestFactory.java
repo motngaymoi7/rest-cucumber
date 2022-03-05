@@ -29,7 +29,10 @@ public class RequestFactory extends TestBase {
    * @return Response of the request
    */
   public static Response updateProduct(String path, Object requestPayload) {
-    return null;
+    logger.info("Updating new product.");
+    Response res = RestClient.doPutRequestWithPayload(path, ContentType.JSON, requestPayload);
+    logger.info(String.format("The request for updating the product completed"));
+    return res;
   }
 
   /**
@@ -39,6 +42,9 @@ public class RequestFactory extends TestBase {
    * @return Response of the request
    */
   public static Response deleteProduct(String path) {
-    return null;
+    logger.info("Delete new product.");
+    Response res = RestClient.doDeleteRequestWithParams(path);
+    logger.info(String.format("The request for deleting the product completed"));
+    return res;
   }
 }
